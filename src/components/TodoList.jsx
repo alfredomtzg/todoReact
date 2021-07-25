@@ -4,7 +4,7 @@ export function TodoList({ todos }) {
   return (
     <ul>
       {todos.map((todo) => (
-        <li> {todo.task}</li>
+        <li key={todo.id}> {todo.task}</li>
       ))}
     </ul>
   );
