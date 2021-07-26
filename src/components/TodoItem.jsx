@@ -1,9 +1,10 @@
 import React from 'react'
 
-export  function TodoItem() {
+export  function TodoItem(prop) {
+  const [ task, id ] = prop;
   return (
-    <div>
-      
+    <div >
+      {task} {id}
     </div>
   )
 }
