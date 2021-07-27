@@ -7,12 +7,16 @@ export function App() {
     { id: 2, task: "Tarea 2", completed: true },
     { id: 3, task: "Tarea 3", completed: false },
   ]);
+  const handleTodoAdd = (e) => {
+    e.preventDefault();
+    
+  }
 
   return (
     <>
       <TodoList todos={todo} />
       <input type="text" placeholder=" Nueva tarea" />
-      <button type="button"> + </button>
+      <button type="button" onClick={handleTodoAdd}> + </button>
       <button type="button"> - </button>
     </>
   );

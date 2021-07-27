@@ -1,10 +1,11 @@
 import React from 'react'
 
-export  function TodoItem(prop) {
-  const [ task, id ] = prop;
+export  function TodoItem({todo}) {
+  const { id, task, completed } = todo;
+  
   return (
-    <div >
-      {task} {id}
-    </div>
+    <li >
+      {task}
+    </li>
   )
 }

@@ -1,10 +1,11 @@
 import React from "react";
+import { TodoItem } from "./TodoItem";
 
 export function TodoList({ todos }) {
   return (
     <ul>
       {todos.map((todo) => (
-        <li key={todo.id}> {todo.task}</li>
+        <TodoItem key={todo.id} todo={todo}/>
       ))}
     </ul>
   );
