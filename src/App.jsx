@@ -12,6 +12,8 @@ export function App() {
     <>
       <TodoList todos={todo} />
       <input type="text" placeholder=" Nueva tarea" />
+      <button type="button"> + </button>
+      <button type="button"> - </button>
     </>
   );
 }
