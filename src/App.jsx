@@ -23,13 +23,17 @@ export function App() {
     });
     todoTaskRef.current.value = '';
   };
+  const clearAllTaskCompleted = () => {
+    const newTodos = todo.filter((todo)=>!todo.completed)
+    setTodo(newTodos);
+  }
 
   return (
     <>
       <TodoList todos={todo} toggleTodo={toggleTodo} />
       <input autoFocus ref={todoTaskRef} type="text" placeholder=" Nueva tarea" />
-      <button onClick={handleTodoAdd}>+</button>
-      <button type="button">-</button>
+      <button type="button" onClick={handleTodoAdd}>+</button>
+      <button type="button" onClick={clearAllTaskCompleted}>-</button>
       <p> Te quedan {todo.filter((todo)=>!todo.completed).length} tareas por terminar</p>
     </>
   );
