@@ -10,10 +10,10 @@ export function App() {
   const todoTaskRef = useRef();
 
   const handleTodoAdd = () => {
-    const tasks = todoTaskRef.current.value;
-    if (tasks === "") return;
+    const task = todoTaskRef.current.value;
+    if (task === "") return;
     setTodo((prevTodos) => {
-      return [ ...prevTodos, { id: uuidv4(), tasks, completed: false }];
+      return [ ...prevTodos, { id: uuidv4(), task, completed: false }];
     });
   };
 
