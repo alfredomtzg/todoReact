@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TodoList } from "./components/TodoList";
 import { v4 as uuidv4 } from 'uuid';
 export function App() {
@@ -27,11 +27,21 @@ export function App() {
     const newTodos = todo.filter((todo)=>!todo.completed)
     setTodo(newTodos);
   }
+  useEffect (()=>{
+    const storedTodo = JSON.parse(localStorage.getItem('todoApp'));
+    if(storedTodo) {
+      setTodo(storedTodo)
+    }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('todoApp', JSON.stringify(todo))
+    
+  }, [todo])
 
   return (
     <>
       <TodoList todos={todo} toggleTodo={toggleTodo} />
-      <input autoFocus ref={todoTaskRef} type="text" placeholder=" Nueva tarea" />
+      <input autoFocus={true} ref={todoTaskRef} type="text" placeholder=" Nueva tarea" />
       <button type="button" onClick={handleTodoAdd}>+</button>
       <button type="button" onClick={clearAllTaskCompleted}>-</button>
       <p> Te quedan {todo.filter((todo)=>!todo.completed).length} tareas por terminar</p>
