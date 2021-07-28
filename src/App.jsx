@@ -27,9 +27,10 @@ export function App() {
   return (
     <>
       <TodoList todos={todo} toggleTodo={toggleTodo} />
-      <input ref={todoTaskRef} type="text" placeholder=" Nueva tarea" />
+      <input autoFocus ref={todoTaskRef} type="text" placeholder=" Nueva tarea" />
       <button onClick={handleTodoAdd}>+</button>
       <button type="button">-</button>
+      <p> Te quedan {todo.filter((todo)=>!todo.completed).length} tareas por terminar</p>
     </>
   );
 }
