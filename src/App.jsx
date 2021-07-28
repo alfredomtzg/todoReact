@@ -8,6 +8,12 @@ export function App() {
     // { id: 3, task: "Tarea 3", completed: false },
   ]);
   const todoTaskRef = useRef();
+  const toggleTodo = (id) => {
+    const newTodos = [...todo];
+    const todos = newTodos.find((todo) => todo.id === id);
+    todos.completed = !todos.completed;
+    setTodo(newTodos);
+  }
 
   const handleTodoAdd = () => {
     const task = todoTaskRef.current.value;
@@ -20,7 +26,7 @@ export function App() {
 
   return (
     <>
-      <TodoList todos={todo} />
+      <TodoList todos={todo} toggleTodo={toggleTodo} />
       <input ref={todoTaskRef} type="text" placeholder=" Nueva tarea" />
       <button onClick={handleTodoAdd}>+</button>
       <button type="button">-</button>
